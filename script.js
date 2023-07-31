@@ -15,7 +15,7 @@ const getPage = async (year, gameDay) => {
     });
 
     setTimeout(() => { page.click("#privacy-cp-wall-accept"); }, 2000);
-    const teams = await page.evaluate(() => {
+    const teams = await page.evaluate( () => {
         let playerList = [];
         let voteList = [];
         let playerWithVotes = [];
@@ -51,9 +51,9 @@ if (programArgs.length != 1) {
         let dateOfToday = new Date();
         let year = dateOfToday.getFullYear();
         if (dateOfToday.getMonth() > 7 && dateOfToday.getMonth() < 13) {
-            getPage(year, programArgs[0]);
+            getPage(year + 1, programArgs[0]);
         } else {
-            getPage(year - 1, programArgs[0]);
+            getPage(year, programArgs[0]);
         }
     }
 }
